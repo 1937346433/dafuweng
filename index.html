@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字游戏</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .game-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .difficulty-buttons {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #message {
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        #attempts {
+            color: #666;
+            margin: 10px 0;
+        }
+        .game-area {
+            display: none;
+        }
+        .history {
+            margin-top: 20px;
+            text-align: left;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>猜数字游戏</h1>
+        
+        <div class="difficulty-buttons">
+            <h2>选择难度：</h2>
+            <button onclick="startGame('easy')">简单 (1-100)</button>
+            <button onclick="startGame('medium')">中等 (1-500)</button>
+            <button onclick="startGame('hard')">困难 (1-1000)</button>
+        </div>
+
+        <div id="gameArea" class="game-area">
+            <p id="gameInfo"></p>
+            <p id="attempts"></p>
+            <input type="number" id="guessInput" placeholder="输入数字">
+            <button onclick="makeGuess()">猜！</button>
+            <p id="message"></p>
+            <div class="history">
+                <h3>猜测历史：</h3>
+                <ul id="guessHistory"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
